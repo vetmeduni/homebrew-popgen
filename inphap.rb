@@ -11,7 +11,7 @@ class Inphap < Formula
   def install
     java = share/"java"
     java.install Dir["*.jar"]
-    bin.write_jar_script java/"inPHAP_v1.1.jar", "inphap"
+    bin.write_jar_script java/"inPHAP_v.1.1.jar", "inphap"
   end
 
   def post_install
