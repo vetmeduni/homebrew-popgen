@@ -4,6 +4,8 @@ class ReadtoolsAT10 < Formula
   url "https://github.com/magicDGS/ReadTools/releases/download/1.0.0/ReadTools.jar"
   sha256 "f87e1c0df65680a17471e20f98155d11c3ff58f06ab8ea295ff8808f21f695a4"
 
+  keg_only :versioned_formula
+
   bottle :unneeded
 
   depends_on :java
