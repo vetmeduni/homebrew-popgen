@@ -1,4 +1,4 @@
-class Readtools < Formula
+class ReadtoolsAT10 < Formula
   desc "Standardizing sources for sequencing data"
   homepage "https://magicdgs.github.io/ReadTools/"
   url "https://github.com/magicDGS/ReadTools/releases/download/1.0.0/ReadTools.jar"
