@@ -33,7 +33,7 @@ class Popoolation2 < Formula
     mkdir "bar"
     system "cpanm", "-L", "bar", "Text::NSP::Measures::2D::Fisher::twotailed"
     mv "bar/lib/perl5/Text", "foo/Modules/"
-    File.write("pop2", <<-EOS.undent)
+    File.write("popoolation2", <<-EOS.undent)
       \#!/bin/bash
       atom="$1"
       if [ "$atom" != "" ]; then
@@ -85,17 +85,17 @@ class Popoolation2 < Formula
     EOS
     bar=share/"popoolation2"
     bar.install Dir["foo/*"]
-    bin.install "pop2"
+    bin.install "popoolation2"
   end
 
   def caveats
     <<-EOS.undent
       The PoPoolation2 files are installed to #{pkgshare}
-      and meant to be called via the "pop2" launch script.
+      and meant to be called via the "popoolation2" launch script.
     EOS
   end
 
   test do
-    system "#{bin}/pop2", "cmh-test", "--test"
+    system "#{bin}/popoolation2", "cmh-test", "--test"
   end
 end
