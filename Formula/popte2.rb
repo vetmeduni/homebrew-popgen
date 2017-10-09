@@ -15,17 +15,14 @@ class Popte2 < Formula
     java = share/"java"
     java.install Dir["*.jar"]
     bin.write_jar_script java/"popte2-v1.10.04.jar", "popte2"
-  end
-
-  def post_install
     inreplace "#{bin}/popte2", "exec java ", "exec java ${JAVA_OPTS:--Xmx4g}"
   end
 
   def caveats
     <<-EOS.undent
-      The PoPoolationTE2 JAR files are installed to
+      The PoPoolationTE2 JAR file is installed to
         #{HOMEBREW_PREFIX}/share/java
-      and are meant to be called via the "popte2" launch script.
+      and is meant to be called via the "popte2" launch script.
       Pass java options via the environment variable JAVA_OPTS.
     EOS
   end
