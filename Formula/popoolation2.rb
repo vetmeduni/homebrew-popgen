@@ -12,10 +12,7 @@ class Popoolation2 < Formula
 
   depends_on "cpanminus" => :build
   depends_on :perl => ["5.8", :run]
-  depends_on :java => ["1.8", :run, :recommended]
-  depends_on "r" => [:run, :optional]
-  depends_on "samtools" => [:run, :optional]
-  depends_on "bwa" => [:run, :optional]
+  depends_on :java => ["1.8", :run]
 
   def install
     rm "mpileup2sync.pl"
@@ -36,10 +33,10 @@ class Popoolation2 < Formula
     mkdir "bar"
     system "cpanm", "-L", "bar", "Text::NSP::Measures::2D::Fisher::twotailed"
     mv "bar/lib/perl5/Text", "foo/Modules/"
-    File.write("ppool2", <<-EOS.undent)
+    File.write("pop2", <<-EOS.undent)
       \#!/bin/bash
       atom="$1"
-      if [ "x$atom" != "x" ]; then
+      if [ "$atom" != "" ]; then
         shift
         if [ "$atom" = "mpileup2sync" ]; then
           exec java ${JAVA_OPTS} -jar #{pkgshare}/mpileup2sync.jar "$@"
@@ -75,27 +72,30 @@ class Popoolation2 < Formula
               indel_filtering/filter-sync-by-gtf
               indel_filtering/identify-indel-regions
 
-           See https://sourceforge.net/p/popoolation2/wiki/Main/ for details."
+           See https://sourceforge.net/p/popoolation2/wiki/Main/ for arguments.
+
+           Please cite as:
+
+             Kofler R, Vinay Pandey R, Schloetterer C. PoPoolation2: Identifying differentiation between
+             populations using sequencing of pooled DNA samples (Pool-Seq). Bioinformatics 27, 3435–3436 (2011)
+             https://doi.org/10.1093/bioinformatics/btr589
+
+          You may also be interested in our Pool-seq review (Nature Reviews Genetics) where we provide some
+          recommendations for the analysis of Pool-seq data: https://doi.org/10.1038/nrg3803"
     EOS
     bar=share/"popoolation2"
     bar.install Dir["foo/*"]
-    bin.install "ppool2"
+    bin.install "pop2"
   end
 
   def caveats
     <<-EOS.undent
-      Please cite as:
-
-        Kofler R, Vinay Pandey R, Schloetterer C. PoPoolation2: Identifying differentiation between
-        populations using sequencing of pooled DNA samples (Pool-Seq). Bioinformatics 27, 3435–3436 (2011)
-        https://doi.org/10.1093/bioinformatics/btr589
-
-      You may also be interested in our Pool-seq review (Nature Reviews Genetics) where we provide some
-      recommendations for the analysis of Pool-seq data: https://doi.org/10.1038/nrg3803
+      The PoPoolation2 files are installed to #{pkgshare}
+      and meant to be called via the "pop2" launch script.
     EOS
   end
 
   test do
-    system "#{bin}/ppool2", "cmh-test", "--test"
+    system "#{bin}/pop2", "cmh-test", "--test"
   end
 end
