@@ -26,7 +26,7 @@ class Mimicree2 < Formula
   end
 
   test do
-    assert_match "USAGE", shell_output("java -jar #{share}/java/mim2.jar -h 2>&1", 1)
-    assert_match "USAGE", shell_output("#{bin}/mimicree2 -h 2>&1", 1)
+    assert_match "USAGE", shell_output("java -jar #{share}/java/mim2.jar --version 2>&1", 1)
+    assert_match "USAGE", shell_output("#{bin}/mimicree2 --version 2>&1", 1)
   end
 end
