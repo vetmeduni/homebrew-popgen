@@ -54,7 +54,7 @@ class Popoolation2 < Formula
       fi
       echo "Usage: $0 <command> <arguments>
 
-            where <command> is one of
+          where <command> is one of
 
               help
               cmh-test
@@ -72,13 +72,13 @@ class Popoolation2 < Formula
               indel_filtering/filter-sync-by-gtf
               indel_filtering/identify-indel-regions
 
-           See https://sourceforge.net/p/popoolation2/wiki/Main/ for arguments.
+          See https://sourceforge.net/p/popoolation2/wiki/Main/ for arguments.
 
-           Please cite as:
+          Please cite as:
 
-             Kofler R, Vinay Pandey R, Schloetterer C. PoPoolation2: Identifying differentiation between
-             populations using sequencing of pooled DNA samples (Pool-Seq). Bioinformatics 27, 3435–3436 (2011)
-             https://doi.org/10.1093/bioinformatics/btr589
+            Kofler R, Vinay Pandey R, Schloetterer C. PoPoolation2: Identifying differentiation between
+            populations using sequencing of pooled DNA samples (Pool-Seq). Bioinformatics 27, 3435–3436 (2011)
+            https://doi.org/10.1093/bioinformatics/btr589
 
           You may also be interested in our Pool-seq review (Nature Reviews Genetics) where we provide some
           recommendations for the analysis of Pool-seq data: https://doi.org/10.1038/nrg3803"
