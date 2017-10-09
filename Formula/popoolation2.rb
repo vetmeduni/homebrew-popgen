@@ -92,6 +92,9 @@ class Popoolation2 < Formula
     <<-EOS.undent
       The PoPoolation2 files are installed to #{pkgshare}
       and meant to be called via the "popoolation2" launch script.
+      
+      The mpileup2sync command is using the faster java version.
+      You may pass java options to this command via JAVA_OPTS.
     EOS
   end
 
