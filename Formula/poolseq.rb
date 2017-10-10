@@ -16,7 +16,7 @@ class Poolseq < Formula
       chooseCRANmirror()
       for (dep in dependencies)
         if (!library(dep,logical.return=TRUE)) install.packages(dep)
-      install.packages("#{HOMEBREW_CACHE}/#{pkgname}",repos=NULL,type="source")
+      install.packages("#{HOMEBREW_CACHE}/#{name}-#{version}.tar.gz",repos=NULL,type="source")
       EOS
     system "Rscript", "install-poolSeq.r"
     $CHILD_STATUS.exitstatus.nil &&
