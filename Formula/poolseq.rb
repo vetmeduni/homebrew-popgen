@@ -15,11 +15,8 @@ class Poolseq < Formula
       dependencies=c("data.table","foreach","stringi","matrixStats")
       chooseCRANmirror()
       for (dep in dependencies)
-      {
         if (!library(dep,logical.return=TRUE)) install.packages(dep)
-      }
-      if (!library("poolSeq",logical.return=TRUE))
-        install.packages("#{HOMEBREW_CACHE}/#{pkgname}",repos=NULL,type="source")
+      install.packages("#{HOMEBREW_CACHE}/#{pkgname}",repos=NULL,type="source")
       EOS
     system "Rscript", "install-poolSeq.r"
     $CHILD_STATUS.exitstatus.nil &&
@@ -31,8 +28,9 @@ class Poolseq < Formula
       This installer just called R's install.packages() function and did not
       install any files itself. "brew uninstall" will only remove the entry in
       Homebrew's list of installed packages, but not the actual R package.
-      It will also not update the R package; use R's update.packages() function
-      for that.
+
+      This installer installed missing dependencies, but did not update them
+      if they were already installed. You might want to call R's update.packages().
     EOS
   end
 
