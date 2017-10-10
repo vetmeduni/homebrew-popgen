@@ -12,15 +12,15 @@ class Poolseq < Formula
   def install
     require "English"
     File.write("install-poolSeq.r", <<-EOS.undent)
-    dependencies=c("data.table","foreach","stringi","matrixStats")
-    chooseCRANmirror()
-    for (dep in dependencies)
-    {
-      if (!library(dep,logical.return=TRUE)) install.packages(dep)
-    }
-    if (!library("poolSeq",logical.return=TRUE))
-      install.packages("#{HOMEBREW_CACHE}/#{pkgname}",repos=NULL,type="source")
-    EOS
+      dependencies=c("data.table","foreach","stringi","matrixStats")
+      chooseCRANmirror()
+      for (dep in dependencies)
+      {
+        if (!library(dep,logical.return=TRUE)) install.packages(dep)
+      }
+      if (!library("poolSeq",logical.return=TRUE))
+        install.packages("#{HOMEBREW_CACHE}/#{pkgname}",repos=NULL,type="source")
+      EOS
     system "Rscript", "install-poolSeq.r"
     $CHILD_STATUS.exitstatus.nil &&
       raise("R may be missing or not in your PATH. To install R, use the --with-r option.")
