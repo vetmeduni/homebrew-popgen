@@ -6,35 +6,39 @@ class Poolseq < Formula
 
   bottle :unneeded
 
-  # R is not really optional, but may not be managed by Homebrew
-  depends_on "r" => :optional
+  depends_on "r"
 
+  # R package installation method copied from package "nonpareil"
   def install
-    require "English"
+    r_library = lib/"R"/r_major_minor/"site-library"
+    r_library.mkpath
     File.write("install-poolSeq.r", <<-EOS.undent)
       dependencies=c("data.table","foreach","stringi","matrixStats")
-      chooseCRANmirror()
+      options(repos=c(CRAN="https://cloud.r-project.org/"))
       for (dep in dependencies)
-        if (!library(dep,logical.return=TRUE)) install.packages(dep)
-      install.packages("#{HOMEBREW_CACHE}/#{name}-#{version}.tar.gz",repos=NULL,type="source")
+      {
+        if (!library(dep,character.only=TRUE,logical.return=TRUE))
+          install.packages(dep,lib="#{r_library}")
+        else
+          update.packages(dep)
+      }
+      install.packages("#{HOMEBREW_CACHE}/#{name}-#{version}.tar.gz",repos=NULL,type="source",lib="#{r_library}")
       EOS
     system "Rscript", "install-poolSeq.r"
-    $CHILD_STATUS.exitstatus.nil &&
-      raise("R may be missing or not in your PATH. To install R, use the --with-r option.")
+  end
+
+  def r_major_minor
+    `#{Formula["r"].bin}/Rscript -e 'cat(as.character(getRversion()[1,1:2]))'`.strip
   end
 
   def caveats
     <<-EOS.undent
-      This installer just called R's install.packages() function and did not
-      install any files itself. "brew uninstall" will only remove the entry in
-      Homebrew's list of installed packages, but not the actual R package.
-
-      This installer installed missing dependencies, but did not update them
-      if they were already installed. You might want to call R's update.packages().
+      Also installed any missing R package dependencies as part of this package.
+      They will be removed when you "brew uninstall" this package.
     EOS
   end
 
   test do
-    system "Rscript", "-e", 'if (!library(poolSeq,logical.return=TRUE)) q("no",11,FALSE)'
+    system "Rscript", "-e", 'if (library(poolSeq,logical.return=TRUE)) q("no",0) else q("no",11)'
   end
 end
