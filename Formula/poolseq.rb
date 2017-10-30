@@ -1,6 +1,7 @@
 class Poolseq < Formula
   desc "Analyze and simulate Pool-Seq time series data"
   homepage "https://github.com/ThomasTaus/poolSeq/"
+
   url "https://github.com/ThomasTaus/poolSeq/releases/download/v0.3.2/poolSeq_0.3.2.tar.gz"
   sha256 "42b90f7117b9d7de90f33303806b7bcf9a07ef53354e51a603cd889e6f68876b"
 
