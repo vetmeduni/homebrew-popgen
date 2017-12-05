@@ -9,10 +9,8 @@ class Distmap < Formula
     perl5lib.install Dir["lib/perl5/site_perl/*.pm"]
     javalib = share/"java"
     javalib.install "share/java/distmap"
-    libexec_linux = libexec/"linux"
-    libexec_linux.install Dir["libexec/linux/*"]
-    libexec_macos = libexec/"macos"
-    libexec_macos.install Dir["libexec/macos/*"]
+    libexec.install "libexec/linux"
+    libexec.install "libexec/macos"
   end
 
   test do
