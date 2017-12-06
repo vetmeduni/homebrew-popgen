@@ -8,7 +8,7 @@ class ReadtoolsAT10 < Formula
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on :java => "1.8+"
 
   def install
     java = share/"java"
