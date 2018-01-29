@@ -1,8 +1,8 @@
-class Readtools < Formula
-  desc "A Universal Toolkit for Handling Sequence Data from Different Sequencing Platforms"
+class ReadtoolsAT11 < Formula
+  desc "Standardizing sources for sequencing data"
   homepage "https://magicdgs.github.io/ReadTools/"
-  url "https://github.com/magicDGS/ReadTools/releases/download/1.2.0/ReadTools.jar"
-  sha256 "2cba3e6e848bc012a5832ca6e0a39a0b8a7b25e4efaca28c14480f72da6c21cf"
+  url "https://github.com/magicDGS/ReadTools/releases/download/1.1.0/ReadTools.jar"
+  sha256 "c9a2da72291928ad28ef80c31a9f0d464ed681ba62b18e23e12cee58fb25546e"
 
   bottle :unneeded
 
