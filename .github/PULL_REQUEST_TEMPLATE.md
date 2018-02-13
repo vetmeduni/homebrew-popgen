@@ -1,4 +1,4 @@
-** Please, keep the template matching your PR and check the boxes that you have completed. **
+**Please, keep the template matching your PR and check the boxes that you have completed.**
 
 --
 
