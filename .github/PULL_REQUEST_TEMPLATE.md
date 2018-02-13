@@ -4,8 +4,9 @@
 
 # FORMULA UPDATE
 
-- [ ] Changed download link
-- [ ] Changed sha-256 hash
+- [ ] Changed download link (**url**)
+- [ ] Changed **sha256** hash
+- [ ] Changed **version**
 - [ ] Changed aliases (if applicable)
 - [ ] Run `brew uninstall --force ${formula} && brew install --build-from-source ${formula}` to test clean installation
 - [ ] Run `brew test ${formula}` after clean installation to run the tests
@@ -15,10 +16,10 @@
 
 # NEW FORMULA
 
-- [ ] Added description and homepage
-- [ ] Added URL, version and sha256
-- [ ] Added Caveats (if applicable)
-- [ ] Addes tests
+- [ ] Added **description** and **homepage**
+- [ ] Added **url**, **version** and **sha256**
+- [ ] Added **caveats** (if applicable)
+- [ ] Addes **tests**
 - [ ] Run `brew install --build-from-source ${formula}` to test installation
 - [ ] Run `brew test ${formula}` to run the tests
 - [ ] Run `brew audit --new-formula ${formula} && brew audit --strict ${formula}` to check syntax
