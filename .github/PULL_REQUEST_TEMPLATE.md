@@ -22,5 +22,5 @@
 - [ ] Addes **tests**
 - [ ] Run `brew install --build-from-source ${formula}` to test installation
 - [ ] Run `brew test ${formula}` to run the tests
-- [ ] Run `brew audit --new-formula ${formula} && brew audit --strict ${formula}` to check syntax
+- [ ] Run `brew audit --new-formula ${formula}` to check syntax
 
