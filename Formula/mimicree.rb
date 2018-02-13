@@ -10,23 +10,19 @@ class Mimicree < Formula
   depends_on :java => ["1.8", :run]
 
   def install
-    java = share/"java"
-    java.install Dir["*.jar"]
-    bin.write_jar_script java/"mimicree.jar", "mimicree"
-    inreplace "#{bin}/mimicree", "exec java ", "exec java ${JAVA_OPTS:--Xmx4g}"
+    libexec.install "mimicree.jar"
+    bin.write_jar_script Dir[libexec/"mimicree.jar"][0], "mimicree", "${JAVA_OPTS:--Xmx4g}"
   end
 
   def caveats
-    <<-EOS.undent
-      The mimicree JAR file is installed to
-        #{HOMEBREW_PREFIX}/share/java
-      and is meant to be called via the "mimicree" launch script.
-      Pass java options via the environment variable JAVA_OPTS.
+    <<~EOS
+      To pass and overwrite java options to the "mimicree" wrapper,
+      use the environment variable JAVA_OPTS (default to --Xmx4g)
+        Example: JAVA_OPTS="-Xmx10g" mimicree
     EOS
   end
 
   test do
-    assert_match "USAGE", shell_output("java -jar #{share}/java/mimicree.jar --version 2>&1", 1)
-    assert_match "USAGE", shell_output("#{bin}/mimicree --version 2>&1", 1)
+    assert_match "MimicrEE", shell_output("#{bin}/mimicree --version 2>&1", 0)
   end
 end
