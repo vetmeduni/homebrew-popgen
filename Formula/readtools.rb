@@ -4,9 +4,7 @@ class Readtools < Formula
   url "https://github.com/magicDGS/ReadTools/releases/download/1.2.1/ReadTools.jar"
   sha256 "7b0c03002377ecf12dcd22766b2e1ec1dadf0e46b4868a2938075b5c4686de7a"
 
-  head do
-    url "https://github.com/magicDGS/ReadTools.git"
-  end
+  head { url "https://github.com/magicDGS/ReadTools.git" }
 
   bottle :unneeded
 
