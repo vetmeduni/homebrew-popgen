@@ -1,8 +1,5 @@
 class Popoolation2 < Formula
-  desc "Allows to compare allele frequencies for SNPs between two or more populations and to identify
-        significant differences. PoPoolation2 requires next generation sequencing data of pooled genomic
-        DNA (Pool-Seq). It may be used for measuring differentiation between populations, for genome wide
-        association studies and for experimental evolution."
+  desc "Identifying differentiation between populations using Pool-Seq"
   homepage "https://sourceforge.net/p/popoolation2/wiki/Main/"
   url "https://downloads.sourceforge.net/project/popoolation2/popoolation2_1201.zip"
   version "1.2.01"
@@ -11,29 +8,34 @@ class Popoolation2 < Formula
   bottle :unneeded
 
   depends_on "cpanminus" => :build
-  depends_on :perl => ["5.8", :run]
+  depends_on "perl" => :run
   depends_on :java => ["1.8", :run]
 
   def install
+    # remove the slow version of mpileup2sync
     rm "mpileup2sync.pl"
+    # remove java source code
+    rm Dir.glob("Modules/javasrc/*.java")
+
+    # make perl scripts runnable
     chmod 0755, Dir.glob("*.pl")
     chmod 0755, Dir.glob("export/*.pl")
     chmod 0755, Dir.glob("indel_filtering/*.pl")
-    mkdir "foo"
-    mv Dir.glob("*.pl"), "foo/"
-    mv Dir.glob("*.jar"), "foo/"
-    mkdir "foo/export"
-    mv Dir["export/*.pl"], "foo/export/"
-    mkdir "foo/indel_filtering"
-    mv Dir["indel_filtering/*.pl"], "foo/indel_filtering/"
-    mkdir "foo/Modules"
-    mv Dir["Modules/*.pm"], "foo/Modules/"
-    mkdir "foo/Modules/Test"
-    mv Dir["Modules/Test/*.pm"], "foo/Modules/Test/"
-    mkdir "bar"
-    system "cpanm", "-L", "bar", "Text::NSP::Measures::2D::Fisher::twotailed"
-    mv "bar/lib/perl5/Text", "foo/Modules/"
-    File.write("popoolation2", <<-EOS.undent)
+
+    # install in pkgshare teh perl scripts, runnable java and modules
+    pkgshare.install Dir.glob("*.pl")
+    pkgshare.install Dir.glob("*.jar")
+    pkgshare.install "export"
+    pkgshare.install "indel_filtering"
+    pkgshare.install "Modules"
+
+    # install the required module in a tmp directory and install it to package share Modules folder
+    mkdir "tmp"
+    system "cpanm", "-L", "tmp", "Text::NSP::Measures::2D::Fisher::twotailed"
+    mv "tmp/lib/perl5/Text", pkgshare/"Modules/"
+
+    # create the launcher script
+    File.write("popoolation2", <<~EOS)
       \#!/bin/bash
       atom="$1"
       if [ "$atom" != "" ]; then
@@ -83,22 +85,20 @@ class Popoolation2 < Formula
           You may also be interested in our Pool-seq review (Nature Reviews Genetics) where we provide some
           recommendations for the analysis of Pool-seq data: https://doi.org/10.1038/nrg3803"
     EOS
-    bar=share/"popoolation2"
-    bar.install Dir["foo/*"]
     bin.install "popoolation2"
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       The PoPoolation2 files are installed to #{pkgshare}
       and meant to be called via the "popoolation2" launch script.
-      
+
       The mpileup2sync command is using the faster java version.
       You may pass java options to this command via JAVA_OPTS.
     EOS
   end
 
   test do
-    system "#{bin}/popoolation2", "cmh-test", "--test"
+    shell_output("#{bin}/popoolation2 cmh-test --test", 0)
   end
 end
