@@ -241,7 +241,7 @@ class RstudioServer < Formula
       EOS
     end
 
-    <<-EOS.unindent
+    <<~EOS
       - To test run RStudio Server,
           sudo #{opt_bin}/rserver --server-daemonize=0
 
