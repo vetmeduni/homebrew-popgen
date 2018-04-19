@@ -9,7 +9,7 @@ class Popoolation2 < Formula
 
   depends_on "cpanminus" => :build
   depends_on "perl" => :run
-  depends_on :java => ["1.8", :run]
+  depends_on :java => "1.8"
 
   def install
     # remove the slow version of mpileup2sync

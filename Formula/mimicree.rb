@@ -7,7 +7,7 @@ class Mimicree < Formula
 
   bottle :unneeded
 
-  depends_on :java => ["1.8", :run]
+  depends_on :java => "1.8+"
 
   def install
     libexec.install "mimicree.jar"
