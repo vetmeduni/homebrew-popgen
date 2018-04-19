@@ -8,7 +8,7 @@ class Popoolation2 < Formula
   bottle :unneeded
 
   depends_on "cpanminus" => :build
-  depends_on "perl" => :run
+  depends_on "perl"
   depends_on :java => "1.8"
 
   def install
