@@ -14,7 +14,7 @@ class RstudioServer < Formula
     depends_on "util-linux" # for libuuid
     depends_on "linuxbrew/extra/linux-pam"
   end
-  depends_on :java => "1.8"
+  depends_on :java => "1.8+"
   depends_on "r" => :recommended
   depends_on "cmake" => :build
   depends_on "ant" => :build

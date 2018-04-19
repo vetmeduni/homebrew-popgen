@@ -6,7 +6,7 @@ class Gowinda < Formula
 
   bottle :unneeded
 
-  depends_on :java => ["1.8", :run]
+  depends_on :java => "1.8+"
 
   def install
     libexec.install Dir["Gowinda-*.jar"][0]
