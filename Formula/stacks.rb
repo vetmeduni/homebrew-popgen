@@ -15,8 +15,8 @@ class Stacks < Formula
     depends_on "google-sparsehash" => :recommended
   end
 
-  depends_on :perl => ["5.10", :run, :recommended]
-  depends_on :mysql => [:run, :recommended]
+  depends_on "perl" => ["5.10", :run, :recommended]
+  depends_on "mysql => [:run, :recommended]
 
   fails_with :clang
 
