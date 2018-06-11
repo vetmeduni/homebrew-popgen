@@ -1,8 +1,8 @@
 class Readtools < Formula
   desc "Handling Sequence Data from Different Sequencing Platforms"
   homepage "https://magicdgs.github.io/ReadTools/"
-  url "https://github.com/magicDGS/ReadTools/releases/download/1.4.0/ReadTools.jar"
-  sha256 "43d8a51b441b2d52b0273c8a8e9e12a67c340ec8923e69e2446d3f0ebdc6acf2"
+  url "https://github.com/magicDGS/ReadTools/releases/download/1.4.1/ReadTools.jar"
+  sha256 "7092f3de1de6eb24023b1a73a0e362feebc98145ad07310ef5c0293fe2934635"
 
   head { url "https://github.com/magicDGS/ReadTools.git" }
 
