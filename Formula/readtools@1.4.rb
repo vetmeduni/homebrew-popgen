@@ -1,4 +1,4 @@
-class Readtools < Formula
+class ReadtoolsAT14 < Formula
   desc "Handling Sequence Data from Different Sequencing Platforms"
   homepage "https://magicdgs.github.io/ReadTools/"
   url "https://github.com/magicDGS/ReadTools/releases/download/1.4.1/ReadTools.jar"
