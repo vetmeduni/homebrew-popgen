@@ -4,8 +4,6 @@ class ReadtoolsAT14 < Formula
   url "https://github.com/magicDGS/ReadTools/releases/download/1.4.1/ReadTools.jar"
   sha256 "7092f3de1de6eb24023b1a73a0e362feebc98145ad07310ef5c0293fe2934635"
 
-  head { url "https://github.com/magicDGS/ReadTools.git" }
-
   bottle :unneeded
 
   depends_on :java => "1.8+"
