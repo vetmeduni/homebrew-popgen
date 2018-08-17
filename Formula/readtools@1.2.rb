@@ -1,8 +1,8 @@
-class Readtools < Formula
+class ReadtoolsAT12 < Formula
   desc "Handling Sequence Data from Different Sequencing Platforms"
   homepage "https://magicdgs.github.io/ReadTools/"
-  url "https://github.com/magicDGS/ReadTools/releases/download/1.5.0/ReadTools.jar"
-  sha256 "7f77e477c24784e97b7e8a931a6d5718c24fdaa10d18c3bf6f4012f170d9874d"
+  url "https://github.com/magicDGS/ReadTools/releases/download/1.2.1/ReadTools.jar"
+  sha256 "7b0c03002377ecf12dcd22766b2e1ec1dadf0e46b4868a2938075b5c4686de7a"
 
   head { url "https://github.com/magicDGS/ReadTools.git" }
 
