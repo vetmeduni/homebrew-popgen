@@ -9,12 +9,7 @@ class ReadtoolsAT14 < Formula
   depends_on :java => "1.8+"
 
   def install
-    if build.head?
-      system "./gradlew", "currentJar"
-      libexec.install "build/libs/ReadTools.jar"
-    else
-      libexec.install "ReadTools.jar"
-    end
+    libexec.install "ReadTools.jar"
     bin.write_jar_script Dir[libexec/"ReadTools.jar"][0], "readtools", "${JAVA_OPTS}"
   end
 
