@@ -21,7 +21,7 @@ class ReadtoolsAT14 < Formula
   end
 
   test do
-    assert_match "USAGE", shell_output("java -jar #{libexec}/ReadTools.jar -h 2>&1", 0)
-    assert_match "USAGE", shell_output("#{bin}/readtools -h 2>&1", 0)
+    assert_match "USAGE", shell_output("java -jar #{libexec}/ReadTools.jar -h 2>&1")
+    assert_match "USAGE", shell_output("#{bin}/readtools -h 2>&1")
   end
 end
