@@ -2,8 +2,9 @@ class Poolseq < Formula
   desc "Analyze and simulate Pool-Seq time series data"
   homepage "https://github.com/ThomasTaus/poolSeq/"
 
-  url "https://github.com/popgenvienna/poolSeq/archive/v0.3.4.tar.gzz"
-  sha256 "e87556d12f74a7a9e2b3179c43a6a1fdb896111817fc8123c5f3b43129e4900a"
+  url "https://github.com/ThomasTaus/poolSeq/archive/v0.3.5.tar.gz"
+  sha256 "214fcb64dcb2c7ae1a132f9fdf2f08659ea2705419bc3f9fdd3b78db66952baf"
+
 
   bottle :unneeded
 
@@ -14,7 +15,7 @@ class Poolseq < Formula
     r_library = lib/"R"/r_major_minor/"site-library"
     r_library.mkpath
     File.write("install-poolSeq.r", <<-EOS.undent)
-      dependencies=c("data.table","foreach","stringi","matrixStats")
+      dependencies=c("data.table","foreach","stringi","matrixStats","Rcpp")
       options(repos=c(CRAN="https://cloud.r-project.org/"))
       for (dep in dependencies)
       {
