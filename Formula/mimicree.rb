@@ -23,6 +23,6 @@ class Mimicree < Formula
   end
 
   test do
-    assert_match "MimicrEE", shell_output("#{bin}/mimicree --version 2>&1", 0)
+    assert_match "MimicrEE", shell_output("#{bin}/mimicree --version 2>&1")
   end
 end

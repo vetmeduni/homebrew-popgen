@@ -25,6 +25,6 @@ class Mimicree2 < Formula
   test do
     assert_match "Usage", shell_output("java -jar #{libexec}/mim2-*.jar --version 2>&1", 1)
     assert_match "Usage", shell_output("#{bin}/mimicree2 --version 2>&1", 1)
-    assert_match "0 tests failed", shell_output("#{bin}/mimicree2 unit-tests 2>&1", 0)
+    assert_match "0 tests failed", shell_output("#{bin}/mimicree2 unit-tests 2>&1")
   end
 end

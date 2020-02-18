@@ -5,7 +5,6 @@ class Poolseq < Formula
   url "https://github.com/ThomasTaus/poolSeq/archive/v0.3.5.tar.gz"
   sha256 "214fcb64dcb2c7ae1a132f9fdf2f08659ea2705419bc3f9fdd3b78db66952baf"
 
-
   bottle :unneeded
 
   depends_on "r"
@@ -25,7 +24,7 @@ class Poolseq < Formula
           update.packages(dep)
       }
       install.packages("#{HOMEBREW_CACHE}/#{name}-#{version}.tar.gz",repos=NULL,type="source",lib="#{r_library}")
-      EOS
+    EOS
     system "Rscript", "install-poolSeq.r"
   end
 
