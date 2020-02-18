@@ -8,8 +8,8 @@ class Popoolation2 < Formula
   bottle :unneeded
 
   depends_on "cpanminus" => :build
-  depends_on "perl"
   depends_on :java => "1.8"
+  depends_on "perl"
 
   def install
     # remove the slow version of mpileup2sync
@@ -99,6 +99,6 @@ class Popoolation2 < Formula
   end
 
   test do
-    shell_output("#{bin}/popoolation2 cmh-test --test", 0)
+    shell_output("#{bin}/popoolation2 cmh-test --test")
   end
 end
