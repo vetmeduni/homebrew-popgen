@@ -1,9 +1,9 @@
 class Mimicree2 < Formula
-  desc "Mimicing Experimental Evolution 2 (work in progress)"
+  desc "Genome-wide forward simulations of evolving populations"
   homepage "https://sourceforge.net/projects/mimicree2/"
-  url "https://downloads.sourceforge.net/project/mimicree2/versions/mim2-v199.jar"
-  version "0.19.9"
-  sha256 "bc35350c693686c47580afa61f842f8b2a618be6ed4fe432725bfc30d31b167b"
+  url "https://downloads.sourceforge.net/project/mimicree2/versions/mim2-v208.jar"
+  version "2.0.8"
+  sha256 "5541c11d7ae61ef01b0250fcdb02a63a2be384d3636114e7b4b54c7e65c7469a"
 
   bottle :unneeded
 
