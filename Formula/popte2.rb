@@ -6,7 +6,7 @@ class Popte2 < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "java"
 
   def install
     java = share/"java"

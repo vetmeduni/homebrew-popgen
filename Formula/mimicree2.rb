@@ -7,7 +7,7 @@ class Mimicree2 < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "java"
 
   def install
     libexec.install Dir["mim2-*.jar"][0]

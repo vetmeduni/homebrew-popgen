@@ -1,6 +1,6 @@
 class Dbxcli < Formula
-  desc "A command line client for Dropbox"
-  homepage "http://dropbox.github.io/dbxcli/"
+  desc "Command-line client for Dropbox"
+  homepage "https://dropbox.github.io/dbxcli/"
   url "https://github.com/dropbox/dbxcli/releases/download/v3.0.0/dbxcli-darwin-amd64"
   version "3.0.0"
   sha256 "1149a2aa6a89829c6d540d04cc1db8cf5bb27e3d8b0ec6b32d830a6818bd7573"
@@ -59,7 +59,7 @@ class Dbxcli < Formula
   end
 
   test do
-    system "#{bin}/dbxcli -h"
-    system "#{bin}/dbx-backup --version"
+    system "#{bin}/dbxcli", "-h"
+    system "#{bin}/dbx-backup", "--version"
   end
 end
