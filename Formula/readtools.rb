@@ -6,7 +6,6 @@ class Readtools < Formula
 
   head { url "https://github.com/magicDGS/ReadTools.git" }
 
-  bottle :unneeded
 
   depends_on "java"
 

@@ -4,7 +4,6 @@ class Inphap < Formula
   url "http://it.informatik.uni-tuebingen.de/software/inPhap/inPHAP_v.1.1.jar"
   sha256 "254a25f80439154fa31f2b34f1319cacce338d50d9d8dfa23f4967fa770af4a5"
 
-  bottle :unneeded
 
   depends_on "java"
 

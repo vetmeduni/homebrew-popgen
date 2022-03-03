@@ -5,7 +5,6 @@ class Mimicree2 < Formula
   version "2.0.8"
   sha256 "5541c11d7ae61ef01b0250fcdb02a63a2be384d3636114e7b4b54c7e65c7469a"
 
-  bottle :unneeded
 
   depends_on "java"
 

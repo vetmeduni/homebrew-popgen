@@ -4,7 +4,6 @@ class Gowinda < Formula
   url "https://downloads.sourceforge.net/project/gowinda/Gowinda-1.12.jar"
   sha256 "bbbb462dbb28e04eff826fa97885c2ac962c4a111fe693e157b017cb2d1df0b2"
 
-  bottle :unneeded
 
   depends_on "java"
 

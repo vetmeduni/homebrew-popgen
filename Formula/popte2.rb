@@ -4,7 +4,6 @@ class Popte2 < Formula
   url "https://downloads.sourceforge.net/project/popoolation-te2/previous-releases/popte2-v1.10.04.jar"
   sha256 "58798c37ed3ff7d5f24d44af3108af485298fbea0eba1a27e535af2e6ff1bb5a"
 
-  bottle :unneeded
 
   depends_on "java"
 

@@ -5,7 +5,6 @@ class Popoolation2 < Formula
   version "1.2.01"
   sha256 "7f45353a211ec88d36fd1beed1d128673f3ff911b731211eb5a39f8602bddd42"
 
-  bottle :unneeded
 
   depends_on "cpanminus" => :build
   depends_on "java"
